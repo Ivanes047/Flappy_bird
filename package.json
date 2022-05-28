@@ -1,0 +1,13 @@
+{
+    "name": "MyFirstNWJS",
+    "version": "0.0.1",
+    "main": "index.html",
+    "window": {
+        "title": "Простое нативное веб-приложение",
+        "min_width": 512,
+        "min_height": 512,
+        "frame": false,
+        "position": "center",
+        "icon": "img/bird.png"
+    }
+}
