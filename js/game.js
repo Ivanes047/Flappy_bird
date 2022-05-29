@@ -2,6 +2,13 @@
 document.getElementById('play-btn').addEventListener("click", play);
 
 function play() {
+
+    if (window.innerWidth < window.innerHeight) {
+        document.getElementById("body").classList.add("align-items");
+        document.getElementById('canvas').classList.add("vw-max");
+        document.getElementById("canvas").classList.add("fit-content");
+    }
+
     document.getElementById('display').classList.add("dnone");
     document.getElementById('canvas').classList.remove("dnone");
 
@@ -21,6 +28,7 @@ function play() {
 
 var cvs = document.getElementById("canvas");
 var ctx = cvs.getContext("2d");
+
 
 var bird = new Image();
 var bg = new Image();
@@ -83,7 +91,14 @@ function draw() {
         && (yPos <= pipe[i].y + pipeUp.height
             || yPos + bird.height >= pipe[i].y + pipeUp.height + gap)
         || yPos + bird.height >= cvs.height - fg.height) {
-            history.pushState(score, "", "./index.html");
+            if (history.state) {
+                console.log(history.state);
+                if (history.state < score) {
+                    history.pushState(score, "", "./index.html");
+                }
+            } else {
+                history.pushState(score, "", "./index.html");
+            }
             return location.reload();
         }
 
