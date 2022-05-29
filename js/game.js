@@ -12,16 +12,51 @@ function play() {
     document.getElementById('display').classList.add("dnone");
     document.getElementById('canvas').classList.remove("dnone");
 
-    // При нажатии на какую-либо кнопку
-    document.addEventListener("keydown", moveUp);
-        
-    function moveUp(e) {
-        if (e.code == "Space") {
-            yPos -= 25;
-            fly.play();
-        }
-    }
+
+    // function moveUp(e) {
+    //     if (e.code == "Space") {
+    //         yPos -= 25;
+    //         fly.play();
+    //     }
+    // }
     draw();
+
+    // При нажатии на кнопку Пробел
+    document.addEventListener("keydown", (e) => {
+        if (e.code == "Space") {
+            moveUp();
+        }
+    });
+
+    let a = true;
+    let id;
+
+    document.addEventListener("touchend", () => {
+        a = false;
+        setTimeout(() => {
+            clearInterval(id);
+            
+            a = true;
+        }, 300);
+    })
+
+    document.addEventListener("touchstart", () => {
+        moveUp();
+        setTimeout(() => {
+            if (a) {
+                Upupup();
+            }
+        }, 300);
+    });
+    
+    function Upupup() {
+        id = setInterval(moveUp, 100);
+    }
+
+    function moveUp() {
+        yPos -= 25;
+        fly.play();
+    }
 }
 
 
