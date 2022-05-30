@@ -1,10 +1,12 @@
 {
-    "name": "MyFirstNWJS",
-    "version": "0.0.1",
+    "name": "Flappy_bird",
+    "version": "0.0.2",
     "main": "index.html",
     "window": {
-        "title": "Простое нативное веб-приложение",
+        "title": "Flappy bird",
         "kiosk": true,
         "icon": "img/bird.png"
-    }
+    },
+    "author":  "WOZEROBE",
+    "license": "©wo0b"
 }

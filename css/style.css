@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
 
 body {
@@ -69,6 +70,17 @@ body {
     text-align: left;
 }
 
+.author {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.author p {
+    font-size: 10pt;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
 .dnone {
     display: none;
 }
@@ -118,5 +130,9 @@ canvas {
     .points{
         text-align: left;
         font-size: 17pt;
+    }
+
+    .author p {
+        font-size: 14pt;
     }
 }

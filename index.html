@@ -7,29 +7,21 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Flappy Bird</title>
-    <script>
-        function hist() {
-            const points = document.getElementById("point");
-            if (history.state) {
-                console.log(history.state);
-                points.innerText = history.state;
-            } else {
-                points.innerText = "0";
-            }
-        }
-    </script>
 </head>
 <body onload="hist()" id="body">
     <div class="display" id="display">
         <div class="mainmenu">
             <h1>Flappy Bird</h1>
             <div class="buttons">
-                <button id="play-btn">Играть</button>
+                <button id="play-btn" onclick="play()">Играть</button>
                 <button class="rules-btn" onclick="alert('Управление осуществляется при помощи клавиши &quot;Пробел&quot;.\nЦель игры: Пройти через наибольшее количество труб.')">Правила</button>
             </div>
             <div class="points">
                 <p>Рекорд по очкам за сессию: </p>
                 <div class="point" id="point"></div>
+            </div>
+            <div class="author">
+                <p onclick="nw.Shell.openExternal('http://wo0b.site');">Сделано WOZEROBE</p>
             </div>
         </div>
     </div>

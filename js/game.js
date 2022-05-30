@@ -1,5 +1,12 @@
-// Запуск игры
-document.getElementById('play-btn').addEventListener("click", play);
+function hist() {
+    const points = document.getElementById("point");
+    if (history.state) {
+        console.log(history.state);
+        points.innerText = history.state;
+    } else {
+        points.innerText = "0";
+    }
+}
 
 function play() {
 
@@ -12,46 +19,13 @@ function play() {
     document.getElementById('display').classList.add("dnone");
     document.getElementById('canvas').classList.remove("dnone");
 
-
-    // function moveUp(e) {
-    //     if (e.code == "Space") {
-    //         yPos -= 25;
-    //         fly.play();
-    //     }
-    // }
     draw();
 
-    // При нажатии на кнопку Пробел
     document.addEventListener("keydown", (e) => {
         if (e.code == "Space") {
             moveUp();
         }
     });
-
-    let a = true;
-    let id;
-
-    document.addEventListener("touchend", () => {
-        a = false;
-        setTimeout(() => {
-            clearInterval(id);
-            
-            a = true;
-        }, 300);
-    })
-
-    document.addEventListener("touchstart", () => {
-        moveUp();
-        setTimeout(() => {
-            if (a) {
-                Upupup();
-            }
-        }, 300);
-    });
-    
-    function Upupup() {
-        id = setInterval(moveUp, 100);
-    }
 
     function moveUp() {
         yPos -= 25;
@@ -59,11 +33,8 @@ function play() {
     }
 }
 
-
-
 var cvs = document.getElementById("canvas");
 var ctx = cvs.getContext("2d");
-
 
 var bird = new Image();
 var bg = new Image();
@@ -77,7 +48,6 @@ fg.src = "img/fg.png";
 pipeUp.src = "img/pipeUp.png";
 pipeBottom.src = "img/pipeBottom.png";
 
-// Звуковые файлы
 var fly = new Audio();
 var score_audio = new Audio();
 
@@ -86,7 +56,6 @@ score_audio.src = "audio/score.mp3";
 
 var gap = 90;
 
-// Создание блоков
 var pipe = [];
 
 pipe[0] = {
@@ -95,7 +64,7 @@ pipe[0] = {
 }
 
 var score = 0;
-// Позиция птички
+
 var xPos = 10;
 var yPos = 150;
 var grav = 1.5;
@@ -120,7 +89,6 @@ function draw() {
         ctx.drawImage(fg, 0, cvs.height - fg.height);
         ctx.drawImage(fg, 250, cvs.height - fg.height);
 
-        // Отслеживание столкновений
         if(xPos + bird.width >= pipe[i].x
         && xPos <= pipe[i].x + pipeUp.width
         && (yPos <= pipe[i].y + pipeUp.height
