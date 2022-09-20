@@ -1,0 +1,11 @@
+{
+    "name": "Flappy_bird",
+    "version": "0.0.3",
+    "window": {
+        "title": "Flappy bird",
+        "kiosk": true,
+        "icon": "bird.png"
+    },
+    "author": "WOZEROBE",
+    "license": "©wo0b"
+}
